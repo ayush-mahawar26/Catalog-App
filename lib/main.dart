@@ -1,35 +1,33 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:catalog_app/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'pages/home_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-void main(){
-  runApp(MaterialApp(home: Home(),)) ;
+void main() {
+  runApp(MyApp());
 }
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Catalog App"),
-        centerTitle: true,
+    return MaterialApp(
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        fontFamily: GoogleFonts.lato().fontFamily,
+        primarySwatch: Colors.deepPurple,
       ),
-      body : Center(
-        child:Text("30 Day of Code" ,
-        style: TextStyle(
-          color: Colors.black,
-          ),
-        ),
-      ) ,
+      debugShowCheckedModeBanner: false,
 
-        drawer: Drawer(),
+      // Routes -> having all the screen info in App
+      routes: {
+        "/": (context) => HomePage(),
+        "/home": (context) => HomePage(),
+        "/login": (context) => LoginPage(),
+      },
     );
   }
 }
