@@ -18,13 +18,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Catalog",
-        style: TextStyle(
-          color: Colors.black ,
-          ),
-        ),
+        title: Text("Catalog App"),
         centerTitle: true,
-        backgroundColor: Colors.grey[200],
       ),
       body : Center(
         child:Text("30 Day of Code" ,
@@ -32,7 +27,9 @@ class _HomeState extends State<Home> {
           color: Colors.black,
           ),
         ),
-      )
+      ) ,
+
+        drawer: Drawer(),
     );
   }
 }
