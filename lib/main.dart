@@ -3,7 +3,7 @@
 import 'package:catalog_app/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/home_screen.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:catalog_app/Widget/theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,10 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        fontFamily: GoogleFonts.lato().fontFamily,
-        primarySwatch: Colors.deepPurple,
-      ),
+      theme: MyTheme.themeData,
       debugShowCheckedModeBanner: false,
 
       // Routes -> having all the screen info in App
