@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
       });
 
       await Future.delayed(Duration(seconds: 1));
-      await Navigator.pushNamed(context, "/home");
+      await Navigator.pushReplacementNamed(context, "/home");
 
       setState(() {
         changeState = false;
