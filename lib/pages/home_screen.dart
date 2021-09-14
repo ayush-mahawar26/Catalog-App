@@ -2,8 +2,10 @@
 
 import 'dart:convert';
 
+import 'package:catalog_app/Models/cart_item.dart';
 import 'package:catalog_app/Models/catalog.dart';
 import 'package:catalog_app/Widget/drawer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:catalog_app/Widget/product_widget.dart';
 import 'package:flutter/services.dart';
@@ -49,6 +51,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    int currentCartItem = CartItems.cartItem.length;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -66,6 +69,16 @@ class _HomePageState extends State<HomePage> {
                   return ProductWidget(items: Catalog.items[index]);
                 })
             : Center(child: CircularProgressIndicator()),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, "/cart");
+          },
+          child: Icon(
+            CupertinoIcons.cart,
+            color: Colors.white,
+          ),
+          backgroundColor: Colors.deepPurple[400],
+        ),
       ),
     );
   }

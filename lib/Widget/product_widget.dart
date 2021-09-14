@@ -1,10 +1,11 @@
 // ignore_for_file: unnecessary_null_comparison, prefer_const_constructors, avoid_print, sized_box_for_whitespace
 
+import 'package:catalog_app/Models/cart_item.dart';
 import 'package:catalog_app/Models/catalog.dart';
+import 'package:catalog_app/pages/catalog_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:marquee/marquee.dart';
 
 class ProductWidget extends StatelessWidget {
   final Items items;
@@ -16,8 +17,17 @@ class ProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Padding(
-        padding: EdgeInsets.all(5.0),
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, "/catalog_item", arguments: {
+            "name": items.name,
+            "color": items.color,
+            "price": items.price,
+            "id": items.id,
+            "desc": items.desc,
+            "img": items.img
+          });
+        },
         child: Card(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -47,7 +57,7 @@ class ProductWidget extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -56,8 +66,19 @@ class ProductWidget extends StatelessWidget {
                       style: TextStyle(fontSize: 13, color: Colors.grey[600]),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
-                      child: Text("Buy"),
+                      onPressed: () {
+                        Map itemToAdd = {
+                          "name": items.name,
+                          "id": items.id,
+                          "color": items.color,
+                          "desc": items.desc,
+                          "img": items.img,
+                          "price": items.price
+                        };
+
+                        CartItems(itemToAdd);
+                      },
+                      child: Text("+ Add"),
                     )
                   ],
                 ),

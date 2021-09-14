@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:catalog_app/pages/cart.dart';
+import 'package:catalog_app/pages/catalog_item.dart';
 import 'package:catalog_app/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/home_screen.dart';
@@ -24,6 +26,8 @@ class MyApp extends StatelessWidget {
         "/": (context) => HomePage(),
         "/home": (context) => HomePage(),
         "/login": (context) => LoginPage(),
+        "/cart": (context) => MyCart(),
+        "/catalog_item": (context) => CatalogItem(),
       },
     );
   }
