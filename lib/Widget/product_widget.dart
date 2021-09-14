@@ -2,7 +2,6 @@
 
 import 'package:catalog_app/Models/cart_item.dart';
 import 'package:catalog_app/Models/catalog.dart';
-import 'package:catalog_app/pages/catalog_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -77,6 +76,9 @@ class ProductWidget extends StatelessWidget {
                         };
 
                         CartItems(itemToAdd);
+
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Item added to Cart")));
                       },
                       child: Text("+ Add"),
                     )

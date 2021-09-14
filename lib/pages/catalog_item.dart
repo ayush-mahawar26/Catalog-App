@@ -158,8 +158,11 @@ class _CatalogItemState extends State<CatalogItem> {
                               onPressed: () {
                                 setState(() {
                                   CartItems(itemCatalog);
+
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text("Item added to Cart")));
                                 });
-                                ;
                               },
                               icon: Icon(CupertinoIcons.cart),
                               label: Text("Add To Cart")),
@@ -176,7 +179,12 @@ class _CatalogItemState extends State<CatalogItem> {
                                 shape:
                                     MaterialStateProperty.all(StadiumBorder()),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text(
+                                            "Buying is not supported Right Now")));
+                              },
                               icon: Icon(CupertinoIcons.bag),
                               label: Text("Buy")),
                         )

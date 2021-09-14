@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 
       // Routes -> having all the screen info in App
       routes: {
-        "/": (context) => HomePage(),
+        "/": (context) => LoginPage(),
         "/home": (context) => HomePage(),
         "/login": (context) => LoginPage(),
         "/cart": (context) => MyCart(),

@@ -50,14 +50,24 @@ class _MyCartState extends State<MyCart> {
                 ),
               ),
 
-              Expanded(
-                child: ListView.builder(
-                    itemCount: CartItems.cartItem.length,
-                    itemBuilder: (context, index) {
-                      return CartItemWidget(
-                          itemForCart: CartItems.cartItem[index]);
-                    }),
-              )
+              (CartItems.cartItem.isNotEmpty)
+                  ? Expanded(
+                      child: ListView.builder(
+                          itemCount: CartItems.cartItem.length,
+                          itemBuilder: (context, index) {
+                            return CartItemWidget(
+                                itemForCart: CartItems.cartItem[index]);
+                          }),
+                    )
+                  : Center(
+                      child: Text(
+                        "No Item in Cart",
+                        style: TextStyle(
+                            color: Colors.grey[700],
+                            fontSize: 16,
+                            fontFamily: GoogleFonts.poppins().fontFamily),
+                      ),
+                    )
             ],
           ),
         ));
